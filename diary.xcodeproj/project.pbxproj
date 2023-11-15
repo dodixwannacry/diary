@@ -58,8 +58,8 @@
 			children = (
 				4D0BEB152B04C9410002C999 /* Info.plist */,
 				4D0BEB012B03832B0002C999 /* diaryApp.swift */,
-				4D0BEB162B04C9C30002C999 /* FaceId_pin.swift */,
 				4D0BEB032B03832B0002C999 /* ContentView.swift */,
+				4D0BEB162B04C9C30002C999 /* FaceId_pin.swift */,
 				4D0BEB052B03832B0002C999 /* Item.swift */,
 				4D0BEB072B03832C0002C999 /* Assets.xcassets */,
 				4D0BEB092B03832C0002C999 /* Preview Content */,

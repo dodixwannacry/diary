@@ -10,7 +10,7 @@ import LocalAuthentication
 
 struct FaceId_pin: View {
     @State private var unlocked = false
-    @State private var text = "LOCKED"
+    @State private var text = "Diary locked"
     var body: some View {
         VStack {
             Text(text)
@@ -21,6 +21,9 @@ struct FaceId_pin: View {
                 authenticate()
                 
             }
+            Image(systemName: "faceid")
+                .imageScale(.large)
+                .foregroundColor(.accentColor)
         }
     }
     func authenticate(){
