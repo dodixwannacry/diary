@@ -58,9 +58,9 @@
 			children = (
 				4D0BEB152B04C9410002C999 /* Info.plist */,
 				4D0BEB012B03832B0002C999 /* diaryApp.swift */,
+				4D0BEB162B04C9C30002C999 /* FaceId_pin.swift */,
 				4D0BEB032B03832B0002C999 /* ContentView.swift */,
 				4D0BEB052B03832B0002C999 /* Item.swift */,
-				4D0BEB162B04C9C30002C999 /* FaceId_pin.swift */,
 				4D0BEB072B03832C0002C999 /* Assets.xcassets */,
 				4D0BEB092B03832C0002C999 /* Preview Content */,
 			);
@@ -297,7 +297,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = RodolfoFalanga.diary;
+				PRODUCT_BUNDLE_IDENTIFIER = RodolfoFalanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -328,7 +328,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = RodolfoFalanga.diary;
+				PRODUCT_BUNDLE_IDENTIFIER = RodolfoFalanga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
