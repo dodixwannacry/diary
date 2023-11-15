@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		4D0BEAFE2B03832B0002C999 /* diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0BEB012B03832B0002C999 /* diaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diaryApp.swift; sourceTree = "<group>"; };
-		4D0BEB032B03832B0002C999 /* FaceId_pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceId_pin.swift; sourceTree = "<group>"; };
+		4D0BEB032B03832B0002C999 /* FaceId_pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceId_pin.swift; sourceTree = "<group>"; usesTabs = 0; };
 		4D0BEB052B03832B0002C999 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4D0BEB072B03832C0002C999 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D0BEB0A2B03832C0002C999 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };

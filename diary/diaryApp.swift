@@ -25,7 +25,7 @@ struct diaryApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FaceId_pin()
         }
         .modelContainer(sharedModelContainer)
     }
