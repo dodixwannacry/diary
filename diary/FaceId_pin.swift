@@ -7,10 +7,15 @@
 
 import SwiftUI
 import LocalAuthentication
+import Combine
 
 struct FaceId_pin: View {
+    @State private var pin = ""
+    let TextLimit = 4
+    @State private var wrongPin = 0
+    @State private var showloginscreen = false
     @State private var unlocked = false
-    @State private var text = "Diary locked"
+    @State private var text = ""
     
     // setting a state variable to define if the view is dislayed or not
     @State private var isContentViewPresented: Bool = false
@@ -37,9 +42,21 @@ struct FaceId_pin: View {
         }
     }
     
+    func limitText(_ upper: Int) {
+        if pin.count > upper {
+            pin = String(pin.prefix(upper))
+        }
+    }
     var body: some View {
         NavigationStack {
             VStack {
+                Text("Type in your password")
+                    .bold()
+                SecureField("", text: $pin)
+                    .onReceive(Just(pin)) { _ in limitText(TextLimit) }
+                    .padding()
+                    .frame(width:80,height: 30)
+                    .border(.red, width:CGFloat(wrongPin))
                 Text(text)
                     .bold()
                     .padding()
