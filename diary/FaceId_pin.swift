@@ -7,11 +7,9 @@
 
 import SwiftUI
 import LocalAuthentication
-import Combine
 
 struct FaceId_pin: View {
     @State private var pin = ""
-    let TextLimit = 4
     @State private var wrongPin = 0
     @State private var showloginscreen = false
     @State private var unlocked = false
@@ -47,20 +45,12 @@ struct FaceId_pin: View {
             pin = String(pin.prefix(upper))
         }
     }
-    
+
     var body: some View {
         NavigationStack{
             ZStack {
                 Color.bg.ignoresSafeArea()
                 VStack {
-                    Text("Type in your password")
-                        .foregroundColor(.GHG)
-                        .bold()
-                    SecureField("", text: $pin)
-                        .onReceive(Just(pin)) { _ in limitText(TextLimit) }
-                        .padding()
-                        .frame(width:80,height: 30)
-                        .border(.red, width:CGFloat(wrongPin))
                     Text(text)
                         .foregroundColor(.GHG)
                         .bold()
@@ -83,6 +73,8 @@ struct FaceId_pin: View {
         }
     }
 }
+
+
     #Preview {
         FaceId_pin()
     }

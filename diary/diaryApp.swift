@@ -12,7 +12,7 @@ import SwiftData
 struct diaryApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Diary.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -27,6 +27,6 @@ struct diaryApp: App {
         WindowGroup {
             FaceId_pin()
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(for: Diary.self)
     }
 }
