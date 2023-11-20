@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4D0BEB022B03832B0002C999 /* diaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0BEB012B03832B0002C999 /* diaryApp.swift */; };
-		4D0BEB042B03832B0002C999 /* FaceId_pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0BEB032B03832B0002C999 /* FaceId_pin.swift */; };
 		4D0BEB062B03832B0002C999 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0BEB052B03832B0002C999 /* Diary.swift */; };
 		4D0BEB082B03832C0002C999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0BEB072B03832C0002C999 /* Assets.xcassets */; };
 		4D0BEB0B2B03832C0002C999 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0BEB0A2B03832C0002C999 /* Preview Assets.xcassets */; };
@@ -19,7 +18,6 @@
 /* Begin PBXFileReference section */
 		4D0BEAFE2B03832B0002C999 /* diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0BEB012B03832B0002C999 /* diaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diaryApp.swift; sourceTree = "<group>"; };
-		4D0BEB032B03832B0002C999 /* FaceId_pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceId_pin.swift; sourceTree = "<group>"; usesTabs = 0; };
 		4D0BEB052B03832B0002C999 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		4D0BEB072B03832C0002C999 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D0BEB0A2B03832C0002C999 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -60,7 +58,6 @@
 			children = (
 				4D0BEB152B04C9410002C999 /* Info.plist */,
 				4D0BEB012B03832B0002C999 /* diaryApp.swift */,
-				4D0BEB032B03832B0002C999 /* FaceId_pin.swift */,
 				4D0BEB162B04C9C30002C999 /* ContentView.swift */,
 				4D0BEB052B03832B0002C999 /* Diary.swift */,
 				4DE4E0FB2B0B6BA600B7E421 /* Pin.swift */,
@@ -149,7 +146,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DE4E0FC2B0B6BA600B7E421 /* Pin.swift in Sources */,
-				4D0BEB042B03832B0002C999 /* FaceId_pin.swift in Sources */,
 				4D0BEB172B04C9C30002C999 /* ContentView.swift in Sources */,
 				4D0BEB062B03832B0002C999 /* Diary.swift in Sources */,
 				4D0BEB022B03832B0002C999 /* diaryApp.swift in Sources */,

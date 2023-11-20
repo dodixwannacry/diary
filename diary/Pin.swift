@@ -10,28 +10,83 @@ import LocalAuthentication
 
 
 struct Pin : View {
-    
+    @State private var pin = ""
+    @State private var wrongPin = 0
+    @State private var showloginscreen = false
+    @State private var text = ""
+    @State private var isContentViewPresented: Bool = false
+    @State var isContentViewPresented2 : Bool = false
     @State var unLocked = false
     
-    var body: some View{
+    
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
         
-        ZStack{
-            Color.bg.ignoresSafeArea()
-            // Lockscreen...
-            
-            if unLocked{
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,error: &error){
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "This is for security reason"   ) {
+                success, authenticationError in
                 
-                Text("App Unlocked")
-                    .font(.title2)
-                    .fontWeight(.heavy)
+                if success {
+                    text = "Unlocked"
+                } else{
+                    text = "There was a problem!"
+                }
+                
+                // setting the isContentViewPresented to the value of sucess
+                isContentViewPresented = success
             }
-            else{
-                
-                LockScreen(unLocked: $unLocked)
+        } else {
+            text = "Phone has not biometrics"
+        }
+    }
+    func presentContentViewIfUnlocked() {
+        if unLocked {
+            isContentViewPresented2 = true
+        }
+    }
+    var body: some View{
+        NavigationStack{
+            ZStack{
+                Color.bg.ignoresSafeArea()
+                VStack{
+                    Text(text)
+                        .foregroundColor(.GHG)
+                        .bold()
+                        .padding()
+                    
+                    Button("Authenticate") {
+                        // using authenticate function to set the isContentViewPresented variable to true or false depending on the FaceID authentication success
+                        
+                        authenticate()
+                        
+                    }.foregroundColor(.GHG).navigationDestination(isPresented: $isContentViewPresented) {
+                        ContentView()
+                    }
+                    // Lockscreen...
+                    
+                    if unLocked{
+                       
+                        Text("App Unlocked")
+                            .font(.title2)
+                            .fontWeight(.heavy)
+                            .onAppear {
+                                                // Call your function or update state here
+                        presentContentViewIfUnlocked()
+                                }
+                    }
+                    else{
+                        
+                        LockScreen(unLocked: $unLocked)
+                    }
+                }
+            }.navigationDestination(isPresented: $isContentViewPresented2) {
+                ContentView()
             }
         }
     }
 }
+
 
 struct LockScreen : View {
     

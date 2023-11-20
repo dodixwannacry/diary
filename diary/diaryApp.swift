@@ -25,7 +25,7 @@ struct diaryApp: App {
 
     var body: some Scene {
         WindowGroup {
-            FaceId_pin()
+            Pin()
         }
         .modelContainer(for: Diary.self)
     }
