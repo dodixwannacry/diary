@@ -28,7 +28,7 @@ struct Pin : View {
                 success, authenticationError in
                 
                 if success {
-                    text = "Unlocked"
+                    text = ""
                 } else{
                     text = "There was a problem!"
                 }
@@ -55,7 +55,7 @@ struct Pin : View {
                         .bold()
                         .padding()
                     
-                    Button("Authenticate") {
+                    Button("", systemImage: "faceid") {
                         // using authenticate function to set the isContentViewPresented variable to true or false depending on the FaceID authentication success
                         
                         authenticate()
@@ -67,11 +67,11 @@ struct Pin : View {
                     
                     if unLocked{
                        
-                        Text("App Unlocked")
+                        Text("")
                             .font(.title2)
                             .fontWeight(.heavy)
                             .onAppear {
-                                                // Call your function or update state here
+                    // Call your function or update state here
                         presentContentViewIfUnlocked()
                                 }
                     }
@@ -134,24 +134,20 @@ struct LockScreen : View {
             }
             .padding(.leading)
             
-            Image("logo")
-                .resizable()
-                .frame(width: 9, height: 9)
-                .padding(.top)
-            
             Text("Type in your password")
+                .font(.system(size:14))
                 .foregroundColor(.GHG)
                 .fontWeight(.bold)
-                .padding(.top,30)
             
             HStack(spacing: 20){
-                
+               
                 // Password Circle View...
                 
                 ForEach(0..<4,id: \.self){index in
                     
                     PasswordView(index: index, password: $password)
                 }
+             
             }
             // for smaller size iphones...
             .padding(.top,height < 750 ? 20 : 30)
@@ -163,22 +159,23 @@ struct LockScreen : View {
                 .foregroundColor(.red)
                 .fontWeight(.heavy)
             
-            
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3),spacing: height < 750 ? 5 : 15){
-                
-                // Password Button ....
-                
-                ForEach(1...9,id: \.self){value in
-                    PasswordButton(value: "\(value)",password: $password, key: $key, unlocked: $unLocked, wrongPass: $wrongPassword)
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3),spacing: height < 750 ? 5 : 15){
+                    
+                    // Password Button ....
+                    
+                    ForEach(1...9,id: \.self){value in
+                        PasswordButton(value: "\(value)",password: $password, key: $key, unlocked: $unLocked, wrongPass: $wrongPassword)
+                    }
+                    
+                    PasswordButton(value: "", password: $password, key: $key, unlocked: $unLocked, wrongPass: $wrongPassword)
+                    
+                    PasswordButton(value: "0", password: $password, key: $key, unlocked: $unLocked, wrongPass: $wrongPassword)
+                    
+                    PasswordButton(value: "delete.fill",password: $password, key: $key, unlocked: $unLocked, wrongPass: $wrongPassword)
+                    Spacer(minLength: 170)
                 }
-                
-                PasswordButton(value: "delete.fill",password: $password, key: $key, unlocked: $unLocked, wrongPass: $wrongPassword)
-                
-                PasswordButton(value: "0", password: $password, key: $key, unlocked: $unLocked, wrongPass: $wrongPassword)
-            }
-            .padding(.horizontal, 55)
-            .padding(.vertical, 50)
-
+                .padding(.horizontal, 55)
+            
         }
         .navigationTitle("")
         .navigationBarHidden(true)
