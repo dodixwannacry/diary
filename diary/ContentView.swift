@@ -2,64 +2,60 @@
 //  ContentView.swift
 //  diary
 //
-//  Created by Rodolfo Falanga on 14/11/23.
-//sss
+//  Created by Rodolfo Falanga on 21/11/23.
+//
 
 import SwiftUI
-import SwiftData
-
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Diary]
-
+    @State private var date = Date()
+    @State private var index = 0
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-    
+        
+        ZStack {
+            TabView(selection: $index){
+                
+                Text("")
+                    .tabItem {
+                        Image(systemName: "house");  Text("")
+                        Text("11")
+                            .font(.system(size:1))
+                            .fontWeight(.bold)
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Diary(name: "new")
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+                        
+                    }.tag(0)
+                
+                Text("")
+                    .tabItem {
+                        Image(systemName: "calendar");  Text("")
+                        Text(index == 1 ? "": "2023")
+                     
+                        
+                    }
+                
+                Text("")
+                    .tabItem { Image(systemName: "plus");  Text("")
+                       
+                        
+                    }
+                
+                Text("")
+                
+                    .tabItem { Image(systemName: "magnifyingglass")
+                            .scaleEffect(x: -1, y: 1)
+                        
+                    }
+                
+                Text("")
+                    .tabItem { Image(systemName: "line.3.horizontal");
+                        
+                }
             }
         }
     }
 }
 
-
 #Preview {
     ContentView()
-        .modelContainer(for: Diary.self, inMemory: true)
 }
 
